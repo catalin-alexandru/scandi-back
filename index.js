@@ -3,13 +3,11 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db");
 
-//middleware
+
 app.use(cors());
-app.use(express.json()); //req.body
+app.use(express.json()); 
 
-//ROUTES//
 
-//create a product
 app.post("/products", async (req, res) => {
 	try {
 		const { sku, name, price, type } = req.body;
@@ -23,7 +21,6 @@ app.post("/products", async (req, res) => {
 	}
 });
 
-//get all products
 
 app.get("/products", async (req, res) => {
 	try {
@@ -35,7 +32,6 @@ app.get("/products", async (req, res) => {
 
 })
 
-//delete a product
 
 app.delete("/products/:id", async (req, res) => {
 	try {
